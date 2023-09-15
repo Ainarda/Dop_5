@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,11 +15,19 @@ public class ScratchDemoUI : MonoBehaviour
 	public Text BrushScaleText;
 	public EraseProgress EraseProgress;
 
-	private string ToggleKey = "Toggle";
+    [SerializeField] private GameObject _lastic;
+    private Vector3 targetPosition;
+
+    private string ToggleKey = "Toggle";
 	private string BrushKey = "Brush";
 	private string ScaleKey = "Scale";
-	
-	void Start()
+
+    private bool _isFinishLevel;
+
+    public  Action OnCompleteLevel;
+
+
+    void Start()
 	{
 		Application.targetFrameRate = 60;
 		ProgressToggle.isOn = PlayerPrefs.GetInt(ToggleKey, 0) == 0;
@@ -36,12 +45,25 @@ public class ScratchDemoUI : MonoBehaviour
 	public Texture2D tex;
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetMouseButton(0))
+		{
+			ShowLastick();
+
+        }
+		if (Input.GetMouseButtonUp(0)) 
 		{
 			Restart();
 		}
 	}
 
+	private void ShowLastick()
+	{
+        targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        targetPosition.z = 0f;
+
+        _lastic.transform.position = targetPosition;
+        _lastic.gameObject.SetActive(true);
+    }
 	private void OnDropdown(int id)
 	{
 		var mode = (ScratchCard.ScratchMode)id;
@@ -70,8 +92,14 @@ public class ScratchDemoUI : MonoBehaviour
 
 	private void OnEraseProgress(float progress)
 	{
-		var value = Mathf.Round(progress * 100f).ToString();
-		ProgressText.text = string.Format("Progress: {0}%", value);
+		float value = Mathf.Round(progress * 100f);
+
+		if (value >90)
+		{
+            _isFinishLevel=true;
+
+			OnCompleteLevel?.Invoke();
+		}
 	}
 	
 	public void OnCheck(bool check)
@@ -82,6 +110,11 @@ public class ScratchDemoUI : MonoBehaviour
 
 	public void Restart()
 	{
-		UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        _lastic.gameObject.SetActive(false);
+
+		if (_isFinishLevel==false)
+		{
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
 	}
 }
