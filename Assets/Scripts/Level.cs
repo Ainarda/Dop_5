@@ -5,35 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    public AudioSource audioSource;
+    //public AudioSource audioSource;
 
     private void Start()
     {
-        GameObject audio =GameObject.FindObjectOfType(typeof(AudioSource)) as GameObject;
+        //GameObject audio = GameObject.FindObjectOfType(typeof(AudioSource)) as GameObject;
 
-        if (audio!=null)
-        {
-            print(gameObject.name);
-            Destroy(gameObject);
-        }
-        else
-        {
-            print(gameObject.name+"1");
-            DontDestroyOnLoad(audioSource.gameObject);
-        }
-        
+        ////if (audioSource != null)
+        ////{
+        ////    Destroy(audioSource.gameObject);
+        ////}
+        ////else
+        ////{
+        // /* }*/   DontDestroyOnLoad(audioSource.gameObject);
+       
+
 
         //audioSource.Play();
     }
-  
+
     public void LoadNextLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         
+
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             PlayerPrefs.SetInt("CurrentLevel", nextSceneIndex);
             SceneManager.LoadScene(nextSceneIndex);
         }
+
     }
 }

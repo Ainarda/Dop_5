@@ -8,12 +8,28 @@ public class SoundButton : MonoBehaviour
     public Image buttonImage;
     public Sprite soundOnSprite;
     public Sprite soundOffSprite;
-    public AudioSource audioSource;
+
+    private AudioSource audioSource;
+
+    AudioSource[] musicPlayers;
 
     private bool isSoundOn = true;
 
     private void Start()
     {
+        musicPlayers = FindObjectsOfType<AudioSource>();
+
+        if (musicPlayers.Length == 1)
+        {
+            DontDestroyOnLoad(musicPlayers[0]);
+        }
+        else
+        {
+            Destroy(musicPlayers[1]);
+        }
+
+        audioSource = FindObjectOfType<AudioSource>();
+
         SetButtonImage();
         LoadVolumeAudio();
     }
@@ -28,19 +44,23 @@ public class SoundButton : MonoBehaviour
         {
             OnSound();
         }
+        
     }
 
     private void OnSound()
     {
         isSoundOn =true;
         buttonImage.sprite = soundOnSprite;
-        audioSource.volume = 1f;
+        AudioListener.volume = 0.2f;
+        //audioSource.volume = 1f;
+        SaveVolumeAudio();
     }
     private void OffSound()
     {
         isSoundOn = false;
         buttonImage.sprite = soundOffSprite;
         audioSource.volume = 0f;
+        SaveVolumeAudio();
     }
     private void SaveVolumeAudio()
     {
@@ -51,14 +71,23 @@ public class SoundButton : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("CurrentVolume"))
         {
+            
+            print(PlayerPrefs.GetFloat("CurrentVolume"));
             if (PlayerPrefs.GetFloat("CurrentVolume")==1)
             {
+                isSoundOn=true;
                 OnSound();
             }
             else
             {
+                isSoundOn = false;
                 OffSound();
             }
+        }
+        else
+        {
+            
+            OnSound();
         }
     }
 

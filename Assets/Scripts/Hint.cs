@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Hint : MonoBehaviour
 {
-    [SerializeField] private HintButton _hintButton;
+    [SerializeField] private AdButton _adButton;
 
     public GameObject targetObject;
     public float delay = 0.5f;
@@ -13,12 +13,12 @@ public class Hint : MonoBehaviour
 
     private void OnEnable()
     {
-        _hintButton.OnWatchedAd += StartHint;
+        _adButton.OnWatchedAd += StartHint;
     }
 
     private void OnDisable()
     {
-        _hintButton.OnWatchedAd -= StartHint;
+        _adButton.OnWatchedAd -= StartHint;
     }
 
     public void StartHint()
