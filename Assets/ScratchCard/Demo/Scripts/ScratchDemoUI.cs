@@ -1,4 +1,5 @@
 ﻿using System;
+using KiYandexSDK;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -84,7 +85,7 @@ public class ScratchDemoUI : MonoBehaviour
 			if (BrushToggles[i].isOn)
 			{
 				CardManager.SetEraseTexture(Brushes[i]);
-				PlayerPrefs.SetInt(BrushKey, i);
+				YandexData.Save(BrushKey, i);
 				break;
 			}
 		}
@@ -105,7 +106,7 @@ public class ScratchDemoUI : MonoBehaviour
 	public void OnCheck(bool check)
 	{
 		EraseProgress.enabled = ProgressToggle.isOn;
-		PlayerPrefs.SetInt(ToggleKey, ProgressToggle.isOn ? 0 : 1);
+		YandexData.Save(ToggleKey, ProgressToggle.isOn ? 0 : 1);
 	}
 
 	public void Restart()

@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class FinishLevel : MonoBehaviour
 {
-    [SerializeField] private AdButton adButton;
     [SerializeField] private ScratchDemoUI _scratchDemo;
     [SerializeField] private Button _nextLevel;
     [SerializeField] private Button _hint;
     [SerializeField] private SpriteRenderer _checkMark;
+    
     private void OnEnable()
     {
         _scratchDemo.OnCompleteLevel += CompleteLevel;   
@@ -25,6 +25,7 @@ public class FinishLevel : MonoBehaviour
         _hint.gameObject.SetActive(false);
         _checkMark.gameObject.SetActive(true);
         _nextLevel.gameObject.SetActive(true);
-        adButton.PlayAd();
+        
+        //AdvertS.PlayAd();
     }
 }

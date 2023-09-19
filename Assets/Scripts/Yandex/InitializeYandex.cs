@@ -26,6 +26,7 @@ public class InitializeYandex : MonoBehaviour
 
     private void OnInitialize()
     {
+        
         if (PlayerPrefs.HasKey("CurrentLevel"))
         {
             int currentLevel = PlayerPrefs.GetInt("CurrentLevel");
