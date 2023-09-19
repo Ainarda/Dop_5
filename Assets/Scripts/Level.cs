@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using KiYandexSDK;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,7 +32,7 @@ public class Level : MonoBehaviour
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            PlayerPrefs.SetInt("CurrentLevel", nextSceneIndex);
+            YandexData.Save("CurrentLevel", nextSceneIndex);
             SceneManager.LoadScene(nextSceneIndex);
         }
 

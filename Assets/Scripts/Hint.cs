@@ -1,24 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Hint : MonoBehaviour
 {
     [SerializeField] private AdButton _adButton;
-
     public GameObject targetObject;
     public float delay = 0.5f;
 
-
     private void OnEnable()
     {
-        _adButton.OnWatchedAd += StartHint;
+        _adButton.RewardClosed += StartHint;
     }
 
     private void OnDisable()
     {
-        _adButton.OnWatchedAd -= StartHint;
+        _adButton.RewardClosed -= StartHint;
     }
 
     public void StartHint()
