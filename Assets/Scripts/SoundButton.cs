@@ -51,8 +51,8 @@ public class SoundButton : MonoBehaviour
     {
         isSoundOn =true;
         buttonImage.sprite = soundOnSprite;
-        AudioListener.volume = 0.2f;
-        //audioSource.volume = 1f;
+        //AudioListener.volume = 0.2f;
+        audioSource.volume = 1f;
         SaveVolumeAudio();
     }
     private void OffSound()
