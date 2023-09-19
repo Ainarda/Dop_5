@@ -75,7 +75,7 @@ public class ScratchDemoUI : MonoBehaviour
 	{
 		CardManager.Card.BrushScale = Vector2.one * val;
 		BrushScaleText.text = Math.Round(val, 2).ToString();
-		PlayerPrefs.SetFloat(ScaleKey, val);
+		YandexData.Save(ScaleKey, val);
 	}
 
 	private void OnChange(bool val)

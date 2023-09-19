@@ -19,7 +19,6 @@ public class Level : MonoBehaviour
         ////else
         ////{
         // /* }*/   DontDestroyOnLoad(audioSource.gameObject);
-       
 
 
         //audioSource.Play();
@@ -27,14 +26,15 @@ public class Level : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        
-
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        AdvertSDK.InterstitialAd(onClose: _ =>
         {
-            YandexData.Save("CurrentLevel", nextSceneIndex);
-            SceneManager.LoadScene(nextSceneIndex);
-        }
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                YandexData.Save("CurrentLevel", nextSceneIndex);
+                SceneManager.LoadScene(nextSceneIndex);
+            }
+        });
     }
 }

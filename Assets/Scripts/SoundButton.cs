@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using KiYandexSDK;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,7 +65,7 @@ public class SoundButton : MonoBehaviour
     }
     private void SaveVolumeAudio()
     {
-        PlayerPrefs.SetFloat("CurrentVolume", audioSource.volume);
+        YandexData.Save("CurrentVolume", audioSource.volume);
     }
 
     private void LoadVolumeAudio()
