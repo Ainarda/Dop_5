@@ -6,38 +6,23 @@ using UnityEngine.UI;
 
 public class SoundButton : MonoBehaviour
 {
-    public Image buttonImage;
-    public Sprite soundOnSprite;
-    public Sprite soundOffSprite;
+    [SerializeField] private Image buttonImage;
+    [SerializeField] private Sprite soundOnSprite;
+    [SerializeField] private Sprite soundOffSprite;
 
-    private AudioSource audioSource;
-
-    AudioSource[] musicPlayers;
-
-    private bool isSoundOn = true;
+    private AudioSource _music;
 
     private void Start()
     {
-        musicPlayers = FindObjectsOfType<AudioSource>();
+        _music = FindObjectOfType<AudioSource>();
+        DontDestroyOnLoad(_music);
 
-        if (musicPlayers.Length == 1)
-        {
-            DontDestroyOnLoad(musicPlayers[0]);
-        }
-        else
-        {
-            Destroy(musicPlayers[1]);
-        }
-
-        audioSource = FindObjectOfType<AudioSource>();
-
-        SetButtonImage();
         LoadVolumeAudio();
     }
 
     public void ToggleSound()
     {
-        if (isSoundOn)
+        if (AudioListener.volume == 1f)
         {
             OffSound();
         }
@@ -45,55 +30,41 @@ public class SoundButton : MonoBehaviour
         {
             OnSound();
         }
-        
     }
 
     private void OnSound()
     {
-        isSoundOn =true;
         buttonImage.sprite = soundOnSprite;
-        //AudioListener.volume = 0.2f;
-        audioSource.volume = 1f;
+        AudioListener.volume = 1f;
         SaveVolumeAudio();
     }
     private void OffSound()
     {
-        isSoundOn = false;
         buttonImage.sprite = soundOffSprite;
-        audioSource.volume = 0f;
+        AudioListener.volume = 0f;
         SaveVolumeAudio();
     }
     private void SaveVolumeAudio()
     {
-        YandexData.Save("CurrentVolume", audioSource.volume);
+        YandexData.Save("CurrentVolume", AudioListener.volume);
     }
 
     private void LoadVolumeAudio()
     {
         if (PlayerPrefs.HasKey("CurrentVolume"))
         {
-            
-            print(PlayerPrefs.GetFloat("CurrentVolume"));
             if (PlayerPrefs.GetFloat("CurrentVolume")==1)
             {
-                isSoundOn=true;
                 OnSound();
             }
             else
             {
-                isSoundOn = false;
                 OffSound();
             }
         }
         else
         {
-            
             OnSound();
         }
-    }
-
-    private void SetButtonImage()
-    {
-        buttonImage.sprite = isSoundOn ? soundOnSprite : soundOffSprite;
     }
 }

@@ -2264,6 +2264,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+--- !u!1 &1035277230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4706466785746291237, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
+  m_PrefabInstance: {fileID: 4706466786830098982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1035277233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4706466785746291233, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
+  m_PrefabInstance: {fileID: 4706466786830098982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035277230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1035277235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035277230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb5063b7834a9a4ea5ff8e1fcfe3c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonImage: {fileID: 1035277233}
+  soundOnSprite: {fileID: 21300000, guid: b4e1b73e1c77454409b3548f83cec1e8, type: 3}
+  soundOffSprite: {fileID: 21300000, guid: 5d9aa8d7b5dbc24408983c75efbe8513, type: 3}
 --- !u!1 &1098357343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,7 +2666,7 @@ SpriteRenderer:
   m_Size: {x: 1.4, y: 2.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1174083652
@@ -3178,6 +3209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584990472}
   - component: {fileID: 1584990471}
+  - component: {fileID: 1584990473}
   m_Layer: 0
   m_Name: LeanLocalization
   m_TagString: Untagged
@@ -3221,6 +3253,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584990473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584990470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f031d9a1ea986743b039c00ef1c0046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leanLocalization: {fileID: 1584990471}
 --- !u!1 &1589420247
 GameObject:
   m_ObjectHideFlags: 0
@@ -6844,9 +6889,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 953718186, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 66029819244872193}
+    - target: {fileID: 953718186, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
+      propertyPath: _scratchDemo
+      value: 
+      objectReference: {fileID: 480580190}
     - target: {fileID: 3761188500423396909, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706466785746291232, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1035277235}
+    - target: {fileID: 4706466785746291232, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleSound
       objectReference: {fileID: 0}
     - target: {fileID: 4706466786259951686, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
       propertyPath: targetObject
@@ -6866,6 +6927,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4706466786259951738, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706466787047104291, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6201635776238499200, guid: 7b9861d68ee8e6e4ba5376556292b01a, type: 3}
