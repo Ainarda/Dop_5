@@ -1,7 +1,10 @@
 using Lean.Localization;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Agava.YandexGames;
+using UnityEngine.SceneManagement;
 
 public class LocaleSelector : MonoBehaviour
 {
