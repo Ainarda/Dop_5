@@ -95,7 +95,7 @@ public class ScratchDemoUI : MonoBehaviour
 	{
 		float value = Mathf.Round(progress * 100f);
 
-		if (value >90)
+		if (value >95)
 		{
             _isFinishLevel=true;
 
