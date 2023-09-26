@@ -14,8 +14,8 @@ public class SoundButton : MonoBehaviour
 
     private void Start()
     {
-        _music = FindObjectOfType<AudioSource>();
-        DontDestroyOnLoad(_music);
+        //_music = FindObjectOfType<AudioSource>();
+        //DontDestroyOnLoad(_music);
 
         LoadVolumeAudio();
     }
@@ -51,17 +51,17 @@ public class SoundButton : MonoBehaviour
 
     private void LoadVolumeAudio()
     {
-        if (PlayerPrefs.HasKey("CurrentVolume"))
-        {
+        //if (PlayerPrefs.HasKey("CurrentVolume"))
+        //{
             if (PlayerPrefs.GetFloat("CurrentVolume")==1)
             {
                 OnSound();
             }
-            else
+            else if(PlayerPrefs.GetFloat("CurrentVolume") == 0)
             {
                 OffSound();
             }
-        }
+        //}
         else
         {
             OnSound();
