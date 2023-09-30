@@ -62,6 +62,7 @@ namespace ScratchCardAsset.Core
 				scratchCard.Progress.SetTexture(SourceTexProperty, scratchCard.ScratchSurface.mainTexture);
 			}
 			rti = new RenderTargetIdentifier(scratchCard.RenderTexture);
+			scratchCard.RenderTexture.Create();
 		}
 
 		private bool IsInBounds(Rect rect)

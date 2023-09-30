@@ -14,14 +14,12 @@ public class SoundButton : MonoBehaviour
 
     private void Start()
     {
-        //_music = FindObjectOfType<AudioSource>();
-        //DontDestroyOnLoad(_music);
-
         LoadVolumeAudio();
     }
 
     public void ToggleSound()
     {
+
         if (AudioListener.volume == 1f)
         {
             OffSound();
@@ -51,17 +49,15 @@ public class SoundButton : MonoBehaviour
 
     private void LoadVolumeAudio()
     {
-        //if (PlayerPrefs.HasKey("CurrentVolume"))
-        //{
-            if (PlayerPrefs.GetFloat("CurrentVolume")==1)
-            {
-                OnSound();
-            }
-            else if(PlayerPrefs.GetFloat("CurrentVolume") == 0)
-            {
-                OffSound();
-            }
-        //}
+        if (PlayerPrefs.GetInt("CurrentVolume",1) == 1)
+        {
+            OnSound();
+        }
+        else if (PlayerPrefs.GetInt("CurrentVolume",1) == 0)
+        {
+            OffSound();
+        }
+
         else
         {
             OnSound();

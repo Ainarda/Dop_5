@@ -23,9 +23,10 @@ public class InitializeYandex : MonoBehaviour
     {
         //if (PlayerPrefs.HasKey("CurrentLevel"))
         //{
-            _currentLevel = (int)YandexData.Load("CurrentLevel", 1);  
+        _currentLevel = (int)YandexData.Load("CurrentLevel", 1);
         //}
         DontDestroyOnLoad(_audio);
         SceneManager.LoadScene(_currentLevel);
     }
 }
+ 

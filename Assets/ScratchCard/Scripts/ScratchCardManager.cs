@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class ScratchCardManager : MonoBehaviour
 {
+	private void Update()
+	{
+		
+	}
 	public enum ScratchCardRenderType
 	{
 		MeshRenderer,

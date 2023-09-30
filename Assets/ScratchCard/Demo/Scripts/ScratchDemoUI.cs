@@ -113,9 +113,11 @@ public class ScratchDemoUI : MonoBehaviour
 	{
         _lastic.gameObject.SetActive(false);
 
-		if (_isFinishLevel==false)
+		if (_isFinishLevel == false)
 		{
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-        }
+			//UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+			CardManager.ResetScratchCard();
+
+		}
 	}
 }
