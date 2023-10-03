@@ -9,12 +9,24 @@ public class Hint : MonoBehaviour
 
     private void OnEnable()
     {
-        _adButton.RewardClosed += StartHint;
+        if(_adButton != null)
+        {
+            _adButton.RewardClosed += StartHint;
+        }
+        
+
+        if (Player.IsAvailbleHint)
+        {
+            StartHint();
+        }
     }
 
     private void OnDisable()
     {
-        _adButton.RewardClosed -= StartHint;
+        if (_adButton != null)
+        {
+            _adButton.RewardClosed -= StartHint;
+        }
     }
 
     public void StartHint()

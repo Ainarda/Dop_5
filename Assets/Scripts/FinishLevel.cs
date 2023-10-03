@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using KiUtility;
+using KimicuUtility;
 using KiYandexSDK;
 using UnityEngine;
 using UnityEngine.UI;

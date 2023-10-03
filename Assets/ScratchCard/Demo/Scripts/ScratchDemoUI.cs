@@ -97,9 +97,11 @@ public class ScratchDemoUI : MonoBehaviour
 
 		if (value >95)
 		{
+			
             _isFinishLevel=true;
-
-			OnCompleteLevel?.Invoke();
+			CardManager.SpriteCard.SetActive(false);
+			CardManager.MeshCard.SetActive(false);
+            OnCompleteLevel?.Invoke();
 		}
 	}
 	

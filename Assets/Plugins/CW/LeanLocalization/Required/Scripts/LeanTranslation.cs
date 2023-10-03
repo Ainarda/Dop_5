@@ -73,9 +73,9 @@ namespace Lean.Localization
 			return total;
 		}
 
-		/// <summary>This returns Text with all tokens substituted using the LeanLocalization.Tokens list.
-		/// NOTE: If you want local tokens to work, then specify the localTokenRoot GameObject.</summary>
-		public static string FormatText(string rawText, string currentText = null, ILocalizationHandler handler = null, GameObject localTokenRoot = null)
+        /// <summary>This returns Text with all tokens substituted using the <see cref="LeanLocalization.Tokens"> list.
+        /// NOTE: If you want local tokens to work, then specify the localTokenRoot GameObject.</summary>
+        public static string FormatText(string rawText, string currentText = null, ILocalizationHandler handler = null, GameObject localTokenRoot = null)
 		{
 			if (string.IsNullOrEmpty(currentText) == true)
 			{
