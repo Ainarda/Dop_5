@@ -7,10 +7,7 @@ public class InitializeYandex : MonoBehaviour
     [SerializeField] private AudioSource _audio;
     [SerializeField] private YandexSDKInitialize _yandexSDKInitialize;
 
-
     private int _currentLevel = 1;
-
-    
 
     public void OnInitialize()
     {

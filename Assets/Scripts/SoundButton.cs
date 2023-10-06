@@ -44,23 +44,22 @@ public class SoundButton : MonoBehaviour
     }
     private void SaveVolumeAudio()
     {
-        YandexData.Save("CurrentVolume", AudioListener.volume);
+        YandexData.Save("CurrentVolume",(int) AudioListener.volume);
     }
 
     private void LoadVolumeAudio()
     {
-        if (PlayerPrefs.GetInt("CurrentVolume",1) == 1)
+        if ((int)(YandexData.Load("CurrentVolume", 1))==1)
         {
             OnSound();
         }
-        else if (PlayerPrefs.GetInt("CurrentVolume",1) == 0)
+        else
         {
             OffSound();
         }
-
-        else
-        {
-            OnSound();
-        }
+        //else
+        //{
+        //    OnSound();
+        //}
     }
 }

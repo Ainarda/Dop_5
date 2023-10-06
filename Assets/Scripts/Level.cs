@@ -20,7 +20,7 @@ public class Level : MonoBehaviour
 
         if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
         {
-            nextSceneIndex = 1;
+            nextSceneIndex = 25;
         }
         YandexData.Save("CurrentLevel", nextSceneIndex);
         SceneManager.LoadScene(nextSceneIndex);
