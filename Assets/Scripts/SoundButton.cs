@@ -12,11 +12,11 @@ public class SoundButton : MonoBehaviour
 
     private AudioSource _music;
 
-    private void Start()
+    private void Awake()
     {
         LoadVolumeAudio();
     }
-
+    
     public void ToggleSound()
     {
 

@@ -15,21 +15,26 @@ public class NumberLevel : MonoBehaviour
         LoadNumberLevel();
         SaveNumberLevel();
     }
+    public void ChangeLevel()
+    {
+        NumberLevels++;
+        SaveNumberLevel();
+    }
     private void LoadNumberLevel()
     {
-        if ((bool)(YandexData.Load("NumberLevel", 0)))
+        if ((bool)(YandexData.Load("NumberLevel", 1)))
         {
-            print("1");
-            NumberLevels = (int)(YandexData.Load("NumberLevel", 0));
+            NumberLevels = (int)(YandexData.Load("NumberLevel", 1));
         }
-        //else
-        //{
-        //    NumberLevels++;
-        //}
-        NumberLevels++;
+        
+        
         if (NumberLevels == 24)
         {
             NumberLevels = 29;
+        }
+        if(NumberLevels == 44)
+        {
+            NumberLevels = 49;
         }
         _numberLevel.text = NumberLevels.ToString();
     }

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private NumberLevel _numberLevel;
     public void LoadNextLevel()
     {
         AdvertSDK.InterstitialAd(onClose: _ => 
@@ -17,6 +18,7 @@ public class Level : MonoBehaviour
     private void GoOverLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        _numberLevel.ChangeLevel();
 
         if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
         {
