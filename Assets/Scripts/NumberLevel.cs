@@ -32,10 +32,27 @@ public class NumberLevel : MonoBehaviour
         {
             NumberLevels = 29;
         }
-        if(NumberLevels == 44)
+        if (NumberLevels == 25)
         {
-            NumberLevels = 49;
+            NumberLevels = 30;
         }
+        if (NumberLevels == 26)
+        {
+            NumberLevels = 31;
+        }
+        if (NumberLevels == 27)
+        {
+            NumberLevels = 32;
+        }
+        if (NumberLevels == 28)
+        {
+            NumberLevels = 33;
+        }
+        if (NumberLevels == 29)
+        {
+            NumberLevels = 34;
+        }
+
         _numberLevel.text = NumberLevels.ToString();
     }
 

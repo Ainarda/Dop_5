@@ -11,7 +11,9 @@ public class YandexButton : MonoBehaviour
 {
     [SerializeField] private ProductType _productType;
     [SerializeField] private Hint _hint;
-    
+    [SerializeField] private Button _hintButton;
+    [SerializeField] private Button _hintButtonReward;
+
 
     private Button _buttonAd;
 
@@ -19,7 +21,10 @@ public class YandexButton : MonoBehaviour
     {
         if((bool)YandexData.Load(AdvertSDK.AdvertOffKey,false)&& _productType== ProductType.RemoveAds)
         {
+            _hintButton.gameObject.SetActive(false);
+            _hintButtonReward.gameObject.SetActive(false);
             gameObject.SetActive(false);
+
         }    
 
         _buttonAd = GetComponent<Button>();
@@ -53,6 +58,9 @@ public class YandexButton : MonoBehaviour
 
                 case ProductType.ShowHint:
                     _hint.StartHint();
+                    _hintButton.gameObject.SetActive(false);
+                    _hintButtonReward.gameObject.SetActive(false);
+
                     break;
             } 
         }, onSuccessConsume: null);

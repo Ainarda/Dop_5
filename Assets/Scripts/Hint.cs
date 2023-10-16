@@ -15,8 +15,9 @@ public class Hint : MonoBehaviour
         }
         
 
-        if (Player.IsAvailbleHint)
+        if (Player.IsAvailbleHint )
         {
+            Player.IsAvailbleHint = false;
             StartHint();
         }
     }
